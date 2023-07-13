@@ -1,3 +1,5 @@
+package org.examenfinal;
+
 public class Movie {
     private String title;
     private String code;

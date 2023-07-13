@@ -1,13 +1,19 @@
+package org.examenfinal;
 import java.util.HashMap;
 
 public class RentalInfo {
 
+  String codR = "regular";
+  String codC = "childrens";
+  String codN = "new";
+
+
   public String statement(Customer customer) {
-    HashMap<String, Movie> movies = new HashMap();
-    movies.put("F001", new Movie("You've Got Mail", "regular"));
-    movies.put("F002", new Movie("Matrix", "regular"));
-    movies.put("F003", new Movie("Cars", "childrens"));
-    movies.put("F004", new Movie("Fast & Furious X", "new"));
+    HashMap<String, Movie> movies = new HashMap<>();
+    movies.put("F001", new Movie("You've Got Mail", codR));
+    movies.put("F002", new Movie("Matrix", codR));
+    movies.put("F003", new Movie("Cars", codC));
+    movies.put("F004", new Movie("Fast & Furious X", codN));
 
     double totalAmount = 0;
     int frequentEnterPoints = 0;
@@ -35,7 +41,7 @@ public class RentalInfo {
       //add frequent bonus points
       frequentEnterPoints++;
       // add bonus for a two day new release rental
-      if (movies.get(r.getMovieId()).getCode() == "new" && r.getDays() > 2) frequentEnterPoints++;
+      if ("new".equals(movies.get(r.getMovieId()).getCode()) && r.getDays() > 2) frequentEnterPoints++;
 
       //print figures for this rental
       result += "\t" + movies.get(r.getMovieId()).getTitle() + "\t" + thisAmount + "\n";

@@ -1,3 +1,7 @@
+package org.examenfinal;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import java.util.Arrays;
 
 public class Main {
@@ -11,6 +15,10 @@ public class Main {
       throw new AssertionError("Expected: " + System.lineSeparator() + String.format(expected) + System.lineSeparator() + System.lineSeparator() + "Got: " + System.lineSeparator() + result);
     }
 
-    System.out.println("Success");
+    Logger logger
+            = Logger.getLogger(
+                Main.class.getName());
+    
+    logger.log(Level.FINE, "Success");
   }
 }
